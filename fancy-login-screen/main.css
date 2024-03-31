@@ -1,0 +1,79 @@
+body {
+    background-color: black;
+}
+
+.fancy-login-screen {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transform-origin: 25% 25%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+}
+
+.fancy-login-screen > #dialog {
+    width: 400px;
+    height: 400px;
+    transition: transform 0.5s;
+    transform: perspective(800px) rotateY(0deg);
+    transform-style: preserve-3d;
+}
+
+.fancy-login-screen > #dialog > div {
+    border-radius: 10px;
+    padding: 50px;
+    backface-visibility: hidden;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    color: white;
+    background-color: black;
+    box-shadow: 0px 0px 15px red;
+    border: 1px solid red;}
+
+#sideA {
+    transform: perspective(800px) rotateY(0deg);
+}
+
+#sideB {
+    transform: perspective(800px) rotateY(180deg);
+}
+
+.fancy-login-screen > #fls-i:checked ~ #dialog {
+    transform: rotateY(180deg);
+}
+
+#fls-i {
+    display: none;
+}
+
+#fls-i + label {
+    width: 70px;
+    height: 30px;
+    background-color: black;
+    border-radius: 30px;
+    border: 1px solid red;
+    margin-bottom: 100px;
+}
+
+#fls-i:checked + label {
+    position: relative;
+}
+
+#fls-i + label::after {
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-image: radial-gradient(red, transparent);
+    margin-top: 2.5px;
+    margin-left: 2.5px;
+    transition: margin 0.5s;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+#fls-i:checked + label::after {
+    margin-left: 42.5px;
+}
